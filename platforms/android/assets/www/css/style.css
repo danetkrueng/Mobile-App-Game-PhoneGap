@@ -21,6 +21,12 @@ h2 {
 	background-color: #f71570;
 }
 
+.navbar > .container .navbar-brand {
+	color: #f71570;
+	font-weight: bold;
+	font-size: 30px;
+}
+
 .starter-template {
   padding: 40px 15px;
 }
