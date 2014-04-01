@@ -17,7 +17,7 @@ $(document).ready(function() {
 				var $this = $(this);
 				if ($this.hasClass('true')) return;
 
-				$($this.children('img')).toggle();
+				$($this.children('img')).toggle().flippy();
 				if ($this.hasClass('open'))$this.removeClass('open');
 				else $this.addClass('open');
 				countOpen();
@@ -30,7 +30,7 @@ $(document).ready(function() {
 	$('#restart').click(function(){
 		var $categories = $('.categories option:selected');
 		$('#game_area').html(setGameArea($categories.val()));
-		var $imgItem = $('.image-item');    
+		var $imgItem = $('.image-item');
 		for (var i=0; i<$imgItem.length; i++) {
 			$($($imgItem[i]).children('img')[1]).hide();
 		}
@@ -42,7 +42,7 @@ $(document).ready(function() {
 					var $this = $(this);
 					if ($this.hasClass('true')) return;
 
-					$($this.children('img')).toggle();
+					$($this.children('img')).toggle().flippy();
 					if ($this.hasClass('open'))$this.removeClass('open');
 					else $this.addClass('open');
 					countOpen();
@@ -56,7 +56,7 @@ $(document).ready(function() {
 var toggleImage = function ($imgItem) {
 	for (var i=0; i<$imgItem.length; i++) {
 		$item = $($imgItem[i]);
-		$($item.children('img')).toggle();
+		$($item.children('img')).toggle().flippy();
 	}
 }
 
@@ -66,7 +66,7 @@ var countOpen = function() {
 		if (setTrue($openClass)) return;
 		setTimeout(function() {
 			for(var i=0; i<2; i++) {
-				$($openClass[i]).children('img').toggle();
+				$($openClass[i]).children('img').toggle().flippy();
 				$($openClass[i]).removeClass('open');
 			}
 		}, 800);
