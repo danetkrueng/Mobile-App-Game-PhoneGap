@@ -1,3 +1,5 @@
+var click = 1;
+var score = 0;
 
 $(document).ready(function() {
 	$('#game_area').html(setGameArea('rabbit'));
@@ -6,24 +8,22 @@ $(document).ready(function() {
 	for (var i=0; i<$imgItem.length; i++) {
 		$($($imgItem[i]).children('img')[1]).hide();
 	}
-	$('#start').click(function(){
-		console.log('sdfsdfds');
+	$('#start').click(function() {
 		toggleImage($imgItem);
-	setTimeout(function() {
-		toggleImage($imgItem);
-		$imgItem.click(function() {
-			var $this = $(this);
-			if ($this.hasClass('true')) return;
+		setTimeout(function() {
+			toggleImage($imgItem);
+			$imgItem.click(function() {
+				var $this = $(this);
+				if ($this.hasClass('true')) return;
 
-			$($this.children('img')).toggle();
-			if ($this.hasClass('open'))$this.removeClass('open');
-			else $this.addClass('open');
-			countOpen();
-		});
-	}, 3000);
-
+				$($this.children('img')).toggle();
+				if ($this.hasClass('open'))$this.removeClass('open');
+				else $this.addClass('open');
+				countOpen();
+				$('#click').html(click++);
+			});
+		}, 3000);
 	});
-
 
 	// Button Restart
 	$('#restart').click(function(){
@@ -58,6 +58,7 @@ var setTrue = function($openClass) {
 	if ($name1.attr('data-img') == $name2.attr('data-img')) {
 		$name1.removeClass('open').addClass('true');
 		$name2.removeClass('open').addClass('true');
+		$('#score').html(score += 500);
 		return true;
 	}
 };
