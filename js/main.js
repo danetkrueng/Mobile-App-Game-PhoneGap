@@ -17,7 +17,7 @@ $(document).ready(function() {
 				var $this = $(this);
 				if ($this.hasClass('true')) return;
 
-				$($this.children('img')).toggle().flippy();
+				$($this.children('img')).toggle();
 				if ($this.hasClass('open'))$this.removeClass('open');
 				else $this.addClass('open');
 				countOpen();
@@ -42,7 +42,7 @@ $(document).ready(function() {
 					var $this = $(this);
 					if ($this.hasClass('true')) return;
 
-					$($this.children('img')).toggle().flippy();
+					$($this.children('img')).toggle();
 					if ($this.hasClass('open'))$this.removeClass('open');
 					else $this.addClass('open');
 					countOpen();
@@ -50,13 +50,15 @@ $(document).ready(function() {
 				});
 			}, 3000);
 		});
+		click = 1;
+		score = 0;
 	});
 });
 
 var toggleImage = function ($imgItem) {
 	for (var i=0; i<$imgItem.length; i++) {
 		$item = $($imgItem[i]);
-		$($item.children('img')).toggle().flippy();
+		$($item.children('img')).toggle();
 	}
 }
 
@@ -66,7 +68,7 @@ var countOpen = function() {
 		if (setTrue($openClass)) return;
 		setTimeout(function() {
 			for(var i=0; i<2; i++) {
-				$($openClass[i]).children('img').toggle().flippy();
+				$($openClass[i]).children('img').toggle();
 				$($openClass[i]).removeClass('open');
 			}
 		}, 800);
