@@ -2,7 +2,8 @@ var click = 1;
 var score = 0;
 
 $(document).ready(function() {
-	$('#game_area').html(setGameArea('rabbit'));
+	var $categories = $('.categories option:selected');
+	$('#game_area').html(setGameArea($categories.val(), $categories.attr('data-extionsion')));
 	var $imgItem = $('.image-item');
 	
 	for (var i=0; i<$imgItem.length; i++) {
@@ -64,12 +65,13 @@ var setTrue = function($openClass) {
 };
 
 var setGameArea = function(directoryName) {
+	extension = $('.categories option:selected').attr('data-extionsion');
 	var allImage = shuffle(Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8));
 	var html ='<div class="row">';
 	for (var i=0; i<16; i++) {
 			html +=' <div class="col-sm-3 image-item"  data-img="'+allImage[i]+'">' +
 						'<img src="img/cover.jpg" alt="">' +
-						'<img src="img/'+directoryName+'/'+allImage[i]+'.jpg" alt="">' +
+						'<img src="img/'+directoryName+'/'+allImage[i]+'.'+extension+'" alt="">' +
 					'</div>'
 	}
 	html += '</div>';
