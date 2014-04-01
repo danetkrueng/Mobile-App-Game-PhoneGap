@@ -28,7 +28,7 @@ h2 {
 }
 
 .starter-template {
-  padding: 40px 15px;
+  padding: 0 15px;
 }
 
 .image-item img {
@@ -58,4 +58,9 @@ h2 {
 	width: 100px;
 	float: left;
 	text-align: center;
+}
+
+.score-board {
+	border: 4px double #EDEDED;
+	padding: 20px 10px 10px 40px;
 }
