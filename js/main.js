@@ -3,7 +3,7 @@ var score = 0;
 
 $(document).ready(function() {
 	var $categories = $('.categories option:selected');
-	$('#game_area').html(setGameArea($categories.val(), $categories.attr('data-extionsion')));
+	$('#game_area').html(setGameArea($categories.val()));
 	var $imgItem = $('.image-item');
 	
 	for (var i=0; i<$imgItem.length; i++) {
@@ -28,7 +28,28 @@ $(document).ready(function() {
 
 	// Button Restart
 	$('#restart').click(function(){
-		window.location.reload();
+		var $categories = $('.categories option:selected');
+		$('#game_area').html(setGameArea($categories.val()));
+		var $imgItem = $('.image-item');    
+		for (var i=0; i<$imgItem.length; i++) {
+			$($($imgItem[i]).children('img')[1]).hide();
+		}
+		$('#start').click(function() {
+			toggleImage($imgItem);
+			setTimeout(function() {
+				toggleImage($imgItem);
+				$imgItem.click(function() {
+					var $this = $(this);
+					if ($this.hasClass('true')) return;
+
+					$($this.children('img')).toggle();
+					if ($this.hasClass('open'))$this.removeClass('open');
+					else $this.addClass('open');
+					countOpen();
+					$('#click').val(click++);
+				});
+			}, 3000);
+		});
 	});
 });
 
