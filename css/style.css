@@ -4,6 +4,7 @@ body {
 
 h2 {
 	color: #f71570;
+	margin-top: 10px;
 }
 
 .navbar-inverse {
@@ -37,8 +38,8 @@ h2 {
 
 .image-item {
 	border: 4px double #ededed;
-	margin: 0 0 10px 0;
-	padding: 10px;
+	margin: 0 0 5px 0;
+	padding: 5px;
 }
 
 #control_board {
@@ -63,4 +64,9 @@ h2 {
 .score-board {
 	border: 4px double #EDEDED;
 	padding: 20px 10px 10px 40px;
+}
+
+.categories {
+    text-align: left;
+    width: 200px;
 }
