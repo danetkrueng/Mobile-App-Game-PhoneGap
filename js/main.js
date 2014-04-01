@@ -3,9 +3,9 @@ $(document).ready(function() {
 	$('#game_area').html(setGameArea('rabbit'));
 	var $imgItem = $('.image-item');
 	for (var i=0; i<$imgItem.length; i++) {
-		$($($imgItem[i]).children('img')[1]).hide();
+		$($($imgItem[i]).children('img')[0]).hide();
 	}
-	toggleImage($imgItem);
+
 	setTimeout(function() {
 		toggleImage($imgItem)
 		$imgItem.click(function() {
