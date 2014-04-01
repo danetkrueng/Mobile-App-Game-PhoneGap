@@ -5,22 +5,19 @@ $(document).ready(function() {
 	for (var i=0; i<$imgItem.length; i++) {
 		$($($imgItem[i]).children('img')[1]).hide();
 	}
+	toggleImage($imgItem);
+	setTimeout(function() {
+		toggleImage($imgItem)
+		$imgItem.click(function() {
+			var $this = $(this);
+			if ($this.hasClass('true')) return;
 
-	$imgItem.click(function() {
-		var $this = $(this);
-		if ($this.hasClass('true')) return;
-
-		$($this.children('img')).toggle();
-		if ($this.hasClass('open'))$this.removeClass('open');
-		else $this.addClass('open');
-		countOpen();
-	});
-	setTimeout(function(){
-		toggleImage($imgItem);
-		setTimeout(function(){
-			toggleImage($imgItem)
-		}, 5000)
-	}, 1000);
+			$($this.children('img')).toggle();
+			if ($this.hasClass('open'))$this.removeClass('open');
+			else $this.addClass('open');
+			countOpen();
+		});
+	}, 5000);
 
 	// Button Restart
 	$('#restart').click(function(){
