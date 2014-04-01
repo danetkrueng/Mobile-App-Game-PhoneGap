@@ -2,12 +2,15 @@
 $(document).ready(function() {
 	$('#game_area').html(setGameArea('rabbit'));
 	var $imgItem = $('.image-item');
+	
 	for (var i=0; i<$imgItem.length; i++) {
-		$($($imgItem[i]).children('img')[0]).hide();
+		$($($imgItem[i]).children('img')[1]).hide();
 	}
-
+	$('#start').click(function(){
+		console.log('sdfsdfds');
+		toggleImage($imgItem);
 	setTimeout(function() {
-		toggleImage($imgItem)
+		toggleImage($imgItem);
 		$imgItem.click(function() {
 			var $this = $(this);
 			if ($this.hasClass('true')) return;
@@ -17,7 +20,10 @@ $(document).ready(function() {
 			else $this.addClass('open');
 			countOpen();
 		});
-	}, 5000);
+	}, 3000);
+
+	});
+
 
 	// Button Restart
 	$('#restart').click(function(){
@@ -26,7 +32,6 @@ $(document).ready(function() {
 });
 
 var toggleImage = function ($imgItem) {
-	console.log($imgItem.length);
 	for (var i=0; i<$imgItem.length; i++) {
 		$item = $($imgItem[i]);
 		$($item.children('img')).toggle();
