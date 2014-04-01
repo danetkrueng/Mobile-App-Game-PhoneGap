@@ -52,6 +52,8 @@ $(document).ready(function() {
 		});
 		click = 1;
 		score = 0;
+		$('#click').val('');
+		$('#score').val('');
 	});
 });
 

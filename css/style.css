@@ -70,3 +70,10 @@ h2 {
     text-align: left;
     width: 200px;
 }
+
+#score,
+#time,
+#click {
+    color: #F71570;
+    font-weight: bold;
+}
