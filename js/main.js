@@ -5,6 +5,7 @@ $(document).ready(function() {
 	for (var i=0; i<$imgItem.length; i++) {
 		$($($imgItem[i]).children('img')[1]).hide();
 	}
+
 	$imgItem.click(function() {
 		var $this = $(this);
 		if ($this.hasClass('true')) return;
@@ -14,10 +15,26 @@ $(document).ready(function() {
 		else $this.addClass('open');
 		countOpen();
 	});
+	setTimeout(function(){
+		toggleImage($imgItem);
+		setTimeout(function(){
+			toggleImage($imgItem)
+		}, 5000)
+	}, 1000);
+
+	// Button Restart
 	$('#restart').click(function(){
 		window.location.reload();
 	});
 });
+
+var toggleImage = function ($imgItem) {
+	console.log($imgItem.length);
+	for (var i=0; i<$imgItem.length; i++) {
+		$item = $($imgItem[i]);
+		$($item.children('img')).toggle();
+	}
+}
 
 var countOpen = function() {
 	var $openClass = $('.image-item.open');
@@ -44,7 +61,7 @@ var setTrue = function($openClass) {
 };
 
 var setGameArea = function(directoryName) {
-	var allImage = shuffle(Array(1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8));
+	var allImage = shuffle(Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8));
 	var html ='<div class="row">';
 	for (var i=0; i<16; i++) {
 			html +=' <div class="col-sm-3 image-item"  data-img="'+allImage[i]+'">' +
