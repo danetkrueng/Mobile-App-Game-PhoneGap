@@ -42,5 +42,20 @@ h2 {
 }
 
 #control_board {
-	padding: 0 0 0 40px;
+	padding: 0 0 0 60px;
+}
+
+.row {
+	padding: 0 0 10px 0;
+}
+
+.row label {
+	float: left;
+	width: 100px;
+}
+
+.form-control {
+	width: 100px;
+	float: left;
+	text-align: center;
 }

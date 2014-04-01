@@ -20,7 +20,7 @@ $(document).ready(function() {
 				if ($this.hasClass('open'))$this.removeClass('open');
 				else $this.addClass('open');
 				countOpen();
-				$('#click').html(click++);
+				$('#click').val(click++);
 			});
 		}, 3000);
 	});
@@ -58,7 +58,7 @@ var setTrue = function($openClass) {
 	if ($name1.attr('data-img') == $name2.attr('data-img')) {
 		$name1.removeClass('open').addClass('true');
 		$name2.removeClass('open').addClass('true');
-		$('#score').html(score += 500);
+		$('#score').val(score += 500);
 		return true;
 	}
 };
