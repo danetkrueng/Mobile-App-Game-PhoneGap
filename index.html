@@ -46,14 +46,18 @@
 </div>
 
 <div class="container">
-
 	<div class="starter-template">
 		<div class="row">
 			<div class="col-sm-8">
-				<h2>Matching Images</h2>
-
+				<h2>Matching Images <b class="timer"></b></h2>
 				<div class="row" id="game_area">
-
+				<!--
+				   ___                         _
+				  / _ \__ _ _ __ ___   ___    /_\  _ __ ___  __ _
+				 / /_\/ _` | '_ ` _ \ / _ \  //_\\| '__/ _ \/ _` |
+				/ /_\\ (_| | | | | | |  __/ /  _  \ | |  __/ (_| |
+				\____/\__,_|_| |_| |_|\___| \_/ \_/_|  \___|\__,_|
+				-->
 				</div>
 			</div>
 			<div class="col-sm-4" id="control_board">
@@ -71,13 +75,15 @@
 						<label>Duration: </label>
 						<input type="text" id="time" class="form-control" disabled="true" value=""></input>
 					</div>
-					<div class="row">	
+					<div class="row">
 						<label>Click: </label>
 						<input type="text" id="click" class="form-control" disabled="true" value=""></input>		
 					</div>
 					<div class="row">
-						<button class="btn btn-mini btn-success" id="start">Start</button>
-						<a href="#" id="restart" class="btn btn-primary">New Game</a>
+						<a class="btn btn-mini btn-success" id="start">Start</a>
+					</div>
+					<div class="row">
+					<a href="#" id="restart">Reset Games</a>
 					</div>
 				</div>
 				<div class="category">

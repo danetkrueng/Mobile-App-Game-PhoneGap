@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var $categories = $('.categories option:selected');
 	$('#game_area').html(setGameArea($categories.val()));
 	var $imgItem = $('.image-item');
-	
+
 	for (var i=0; i<$imgItem.length; i++) {
 		$($($imgItem[i]).children('img')[1]).hide();
 	}
@@ -23,6 +23,7 @@ $(document).ready(function() {
 				countOpen();
 				$('#click').val(click++);
 			});
+			timeCounter($('#time'));
 		}, 3000);
 	});
 
@@ -91,7 +92,7 @@ var setTrue = function($openClass) {
 
 var setGameArea = function(directoryName) {
 	extension = $('.categories option:selected').attr('data-extionsion');
-	var allImage = shuffle(Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8));
+	var allImage = shuffle(Array(1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8));
 	var html ='<div class="row">';
 	for (var i=0; i<16; i++) {
 			html +=' <div class="col-sm-3 image-item"  data-img="'+allImage[i]+'">' +
@@ -121,6 +122,30 @@ var shuffle = function (array) {
 		array[currentIndex] = array[randomIndex];
 		array[randomIndex] = temporaryValue;
 	}
-
 	return array;
-}
+};
+var timeCounter = function($placeToShow) {
+	var second = 0;
+	interval = setInterval(
+		function(){
+			second++;
+			s = second%60;
+			m = second/60;
+			h = m/60;
+			$placeToShow.val(parseInt(h)+':'+parseInt(m)+':'+s);
+		},
+		1000);
+};
+var timer = function(time) {
+	var i=0;
+	$time = $('.timer');
+	interval = setInterval(function(){
+		console.log(i++);
+		$time.html('Start IN:' + i);
+	}, 1000);
+
+	setTimeout(function(){
+		clearInterval(interval);
+		$time.html('');
+	}, time*1000);
+};
